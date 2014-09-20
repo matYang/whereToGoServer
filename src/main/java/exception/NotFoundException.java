@@ -2,15 +2,15 @@ package exception;
 
 import org.restlet.data.Status;
 
-public class UserNotFoundException extends ParentException {
+public class NotFoundException extends ParentException {
 
 	private static final long serialVersionUID = 3513729066696587101L;
 
-	public UserNotFoundException() {
-		super("Validation Failed");
+	public NotFoundException() {
+		super("Resource Not Found");
 	}
 
-	public UserNotFoundException(String exceptionText) {
+	public NotFoundException(String exceptionText) {
 		super(exceptionText);
 	}
 

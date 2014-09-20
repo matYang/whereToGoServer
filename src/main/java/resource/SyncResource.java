@@ -18,5 +18,4 @@ public class SyncResource extends ParentResource{
 	    this.addCORSHeader();
 	    return result;
 	}	    
-
 }

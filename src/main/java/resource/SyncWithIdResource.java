@@ -7,16 +7,17 @@ import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
+import org.restlet.resource.Put;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import service.DaoService;
 
-public class SyncResource extends ParentResource{
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class SyncWithIdResource extends ParentResource {
 	
-	private static final Logger logger = LoggerFactory.getLogger(SyncResource.class);
+	private static final Logger logger = LoggerFactory.getLogger(SyncWithIdResource.class);
 	
 	@Get 	    
 	public Representation getUserData() {
@@ -28,7 +29,7 @@ public class SyncResource extends ParentResource{
 	    return result;
 	}	   
 	
-	@Post
+	@Put
 	public Representation saveUserData(Representation entity){
 		JSONObject response = new JSONObject();
 

@@ -15,6 +15,7 @@ public class City implements Serializable {
 	// private ArrayList<Attraction> attractions;
 	private boolean must;
 	private double score;
+	private double distance;
 
 	private ArrayList<String> attractions;
 
@@ -22,7 +23,7 @@ public class City implements Serializable {
 
 	}
 
-	public City(int day, int duration, String name, String address, boolean must, double score, ArrayList<String> attractions) {
+	public City(int day, int duration, String name, String address, boolean must, double score, double distance, ArrayList<String> attractions) {
 		super();
 		this.day = day;
 		this.duration = duration;
@@ -30,6 +31,7 @@ public class City implements Serializable {
 		this.address = address;
 		this.must = must;
 		this.score = score;
+		this.distance = distance;
 		this.attractions = attractions;
 	}
 
@@ -81,6 +83,18 @@ public class City implements Serializable {
 		this.score = score;
 	}
 
+	public double getDistance() {
+		return distance;
+	}
+
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public ArrayList<String> getAttractions() {
 		return attractions;
 	}
@@ -92,7 +106,7 @@ public class City implements Serializable {
 	@Override
 	public String toString() {
 		return "City [day=" + day + ", duration=" + duration + ", name=" + name + ", address=" + address + ", must=" + must + ", score=" + score
-				+ ", attractions=" + attractions + "]";
+				+ ", distance=" + distance + ", attractions=" + attractions + "]";
 	}
 
 }

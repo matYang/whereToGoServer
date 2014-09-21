@@ -67,4 +67,50 @@ public class AttractionRedisTest {
 		DaoService.deleteTrip(trip.getId());
 	}
 	
+	@Test
+	public void testCityHistory(){
+		ArrayList<String> attractions_a = new ArrayList<String>();
+		attractions_a.add(new Attraction("London Museum", 2, "London Ontario", "http://www.blablabla.com/photo").toString());
+		ArrayList<String> attractions_b = new ArrayList<String>();
+		attractions_b.add(new Attraction("The Kitchener City Hall", 0, "Kitchener Ontario uptown", "http://www.theBoringCityHallThatReallyDoesNothingSpecial.com/photo").toString());
+		ArrayList<String> attractions_c = new ArrayList<String>();
+		attractions_c.add(new Attraction("Boom Digital Media Group", 2, "CommuniTech Incubator", "http://www.boomdigital.ca").toString());
+		
+		ArrayList<City> cities_a = new ArrayList<City>();
+		cities_a.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
+		cities_a.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, attractions_b));
+		cities_a.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, attractions_c));
+		
+		ArrayList<City> cities_b = new ArrayList<City>();
+		cities_b.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
+		
+		ArrayList<City> cities_c = new ArrayList<City>();
+		cities_b.add(new City(1, 3, "Waterloo", "Waterloo Ontario", true, 254.05, attractions_a));
+		
+		Trip trip_a = new Trip("TESTTa", DateUtility.curTime(), cities_a);
+		Trip trip_b = new Trip("TESTTb", DateUtility.curTime(), cities_a);
+		Trip trip_c = new Trip("TESTTc", DateUtility.curTime(), cities_b);
+		Trip trip_d = new Trip("TESTTd", DateUtility.curTime(), cities_c);
+		Trip trip_e = new Trip("TESTTd", DateUtility.curTime(), cities_c);
+
+		DaoService.storeTrip(trip_a);
+		DaoService.storeTrip(trip_b);
+		DaoService.storeTrip(trip_c);
+		DaoService.storeTrip(trip_d);
+		DaoService.storeTrip(trip_d);
+		
+		assertTrue(DaoService.getCityHistory("London").size() == 3);
+		assertTrue(DaoService.getCityHistory("Waterloo").size() == 3);
+		assertTrue(DaoService.getCityHistory("Kitchener").size() == 2);
+		
+		DaoService.deleteTrip(trip_a.getId());
+		DaoService.deleteTrip(trip_b.getId());
+		DaoService.deleteTrip(trip_c.getId());
+		DaoService.deleteTrip(trip_d.getId());
+		
+		assertTrue(DaoService.getCityHistory("London").size() == 0);
+		assertTrue(DaoService.getCityHistory("Waterloo").size() == 0);
+		assertTrue(DaoService.getCityHistory("Kitchener").size() == 0);
+	}
+	
 }

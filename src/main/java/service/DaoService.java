@@ -155,7 +155,7 @@ public class DaoService {
 			ObjectMapper mapper = new ObjectMapper();
 			CityHistoryMap history;
 			if (jsonStr == null) {
-				history = new CityHistoryMap();
+				return;
 			} else {
 				history = mapper.readValue(jsonStr, CityHistoryMap.class);
 			}

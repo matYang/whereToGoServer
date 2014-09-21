@@ -50,9 +50,9 @@ public class AttractionRedisTest {
 		attractions_c.add(new Attraction("Genesys Lab", 25, "Middle Markham Somewhere Near First Markham Place", "http://www.genesys.com").toString());
 		
 		ArrayList<City> cities = new ArrayList<City>();
-		cities.add(new City(1, 3, "London", "London Ontario", "www.london.com", attractions_a));
-		cities.add(new City(6, 2, "Waterloo", "Waterloo Ontario", "www.waterloo.com", attractions_b));
-		cities.add(new City(9, 3, "Kitchener", "Kitchener Ontario", "www.kitchener.com", attractions_c));
+		cities.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
+		cities.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, attractions_b));
+		cities.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, attractions_c));
 		
 		//Note the mock Id must be 6 character long or the store routine will consider it invalid
 		Trip trip = new Trip("TESTTP", DateUtility.curTime(), cities);

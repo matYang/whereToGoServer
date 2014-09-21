@@ -7,10 +7,10 @@ public class Place {
 	private long lng;
 	private int rank;
 
-	public Place(){
-		
+	public Place() {
+		super();
 	}
-	
+
 	public Place(String name, long lat, long lng, int rank) {
 		super();
 		this.name = name;
@@ -57,5 +57,4 @@ public class Place {
 				+ ", rank=" + rank + "]";
 	}
 
-	
 }

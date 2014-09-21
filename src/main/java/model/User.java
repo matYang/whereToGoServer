@@ -9,24 +9,24 @@ public class User {
 	private String lastName;
 	private int gender;
 
-	private ArrayList<Place> favourites;
+	private ArrayList<Attraction> favourites;
 	private ArrayList<Route> routeHistory;
 
 	private long creationTime;
 
 	public User() {
-
+		super();
 	}
 
 	public User(String id, String firstName, String lastName, int gender,
-			ArrayList<Place> favourites, ArrayList<Route> routeHistory,
+			ArrayList<Attraction> favouriteAttractions, ArrayList<Route> routeHistory,
 			long creationTime) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
-		this.favourites = favourites;
+		this.favourites = favouriteAttractions;
 		this.routeHistory = routeHistory;
 		this.creationTime = creationTime;
 	}
@@ -63,12 +63,16 @@ public class User {
 		this.gender = gender;
 	}
 
-	public ArrayList<Place> getFavourites() {
+	public ArrayList<Attraction> getFavourites() {
 		return favourites;
 	}
 
-	public void setFavourites(ArrayList<Place> favourites) {
+	public void setFavourites(ArrayList<Attraction> favourites) {
 		this.favourites = favourites;
+	}
+	
+	public ArrayList<Attraction> getFavourites(ArrayList<Attraction> favourites) {
+		return this.favourites;
 	}
 
 	public ArrayList<Route> getRouteHistory() {
@@ -90,7 +94,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName="
-				+ lastName + ", gender=" + gender + ", favourites="
+				+ lastName + ", gender=" + gender + ", favouriteAttractions="
 				+ favourites + ", routeHistory=" + routeHistory
 				+ ", creationTime=" + creationTime + "]";
 	}

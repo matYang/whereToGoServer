@@ -12,13 +12,15 @@ public class City implements Serializable {
 	private String name;
 	private String address;
 	private String photo;
-	private ArrayList<Attraction> attractions;
+	//private ArrayList<Attraction> attractions;
+	
+	private ArrayList<String> attractions;
 	
 	public City() {
 
 	}
 
-	public City(int day, int duration, String name, String address, String photo, ArrayList<Attraction> attractions) {
+	public City(int day, int duration, String name, String address, String photo, ArrayList<String> attractions) {
 		super();
 		this.day = day;
 		this.duration = duration;
@@ -68,11 +70,11 @@ public class City implements Serializable {
 		this.photo = photo;
 	}
 
-	public ArrayList<Attraction> getAttractions() {
+	public ArrayList<String> getAttractions() {
 		return attractions;
 	}
 
-	public void setAttractions(ArrayList<Attraction> attractions) {
+	public void setAttractions(ArrayList<String> attractions) {
 		this.attractions = attractions;
 	}
 

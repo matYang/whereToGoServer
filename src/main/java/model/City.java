@@ -13,7 +13,7 @@ public class City implements Serializable {
 	private String address;
 	private String photo;
 	private ArrayList<Attraction> attractions;
-
+	
 	public City() {
 
 	}

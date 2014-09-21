@@ -5,26 +5,26 @@ import org.junit.*;
 import java.util.ArrayList;
 
 import model.Attraction;
-import model.User;
+import model.Trip;
 import service.DaoService;
 
 public class AttractionRedisTest {
 	
 	@Test
 	public void testStoreFetchUser(){
-		User user = new User();
+		Trip user = new Trip();
 		user.setId("testUser1");
 		user.setFirstName("traytray");
 		
 		DaoService.storeUser(user);
-		User result = DaoService.fetchUser(user.getId());
+		Trip result = DaoService.fetchUser(user.getId());
 		
 		assertTrue(result.getFirstName().equals("traytray"));
 	}
 	
 	@Test
 	public void testStoreFetchAttraction() {
-		User user = new User();
+		Trip user = new Trip();
 		ArrayList<Attraction> favourites = new ArrayList<Attraction>();
 		
 		favourites.add(new Attraction("attraction:100", "disney", "dstreet100", 2, 3));
@@ -33,7 +33,7 @@ public class AttractionRedisTest {
 		user.setFavourites(favourites);
 
 		DaoService.storeUser(user);
-		User resultUser = DaoService.fetchUser(user.getId());
+		Trip resultUser = DaoService.fetchUser(user.getId());
 		
 		assertTrue(resultUser.getFirstName().equals("matt"));
 		assertTrue(resultUser.getFavourites().get(0).getId().equals("attraction:100"));

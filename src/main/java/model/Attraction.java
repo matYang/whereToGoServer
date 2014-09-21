@@ -1,70 +1,63 @@
 package model;
-//import java.io.Serializable;
 
-public class Attraction {
-	private String id;
-	private String name;
-	private String address;
-	private int time;
-	private int rank;
+import java.io.Serializable;
+
+public class Attraction implements Serializable{
+
+	private static final long serialVersionUID = 115375438358374603L;
 	
+	private String name;
+	private int duration;
+	private String address;
+	private String photo;
+
 	public Attraction() {
 		super();
 	}
-	
-	public Attraction(String id, String name, String address, int time, int rank) {
+
+	public Attraction(String name, int duration, String address, String photo) {
 		super();
-		this.id = id;
 		this.name = name;
+		this.duration = duration;
 		this.address = address;
-		this.time = time;
-		this.rank = rank;
+		this.photo = photo;
 	}
-	
-	public void setId(String id) {
-		this.id = id;
+
+	public String getName() {
+		return name;
 	}
-	
-	public String getId() {
-		return this.id;
-	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getName() {
-		return this.name;
+
+	public int getDuration() {
+		return duration;
 	}
-	
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	public String getAddress() {
-		return this.address;
+
+	public String getPhoto() {
+		return photo;
 	}
-	
-	public void setTime(int time) {
-		this.time = time;
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
-	
-	public int getTime() {
-		return this.time;
-	}
-	
-	public void setRank(int rank) {
-		this.rank = rank;
-	}
-	
-	public int getRank() {
-		return this.rank;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Attraction [name=" + name + ", address=" + address + ", timeOfStay=" + time
-				+ ", rank=" + rank + "]";
+		return "Attraction [name=" + name + ", duration=" + duration + ", address=" + address + ", photo=" + photo + "]";
 	}
-	
+
 }

@@ -1,6 +1,6 @@
 package resource;
 
-import model.User;
+import model.Trip;
 
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
@@ -37,7 +37,7 @@ public class SyncWithIdResource extends ParentResource {
 			JSONObject requestData = this.getJSONObj(entity);
 			
 			ObjectMapper mapper = new ObjectMapper();
-			User user = mapper.readValue(requestData.toString(), User.class);
+			Trip user = mapper.readValue(requestData.toString(), Trip.class);
 			
 			logger.info(user.toString());
 			

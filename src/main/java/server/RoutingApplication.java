@@ -7,7 +7,9 @@ import org.restlet.routing.Router;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import resource.RecommendResource;
 import resource.SyncResource;
+import resource.SyncWithIdResource;
 
 public final class RoutingApplication extends Application {
 	
@@ -27,6 +29,8 @@ public final class RoutingApplication extends Application {
 		Router router = new Router(getContext());
 		
 		router.attach("/api/user/sync", SyncResource.class);
+		router.attach("/api/user/sync/{id}", SyncWithIdResource.class);
+		router.attach("/api/user/recommend", RecommendResource.class);
 		
 		return router;
 	}

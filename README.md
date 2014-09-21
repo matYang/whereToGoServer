@@ -3,7 +3,7 @@
 This is the server for the Hack the North Project, Where2go. The server is to allow user to store their trips and retrieve them via a unique trip code. Also the sever provide support for some APIs used.
 
 
-## APIs:
+## Server APIs:
 1. Creating a new trip on the server:
 /api/user/sync  
 Request Type: POST	      	

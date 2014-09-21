@@ -1,9 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Trip {
+public class Trip implements Serializable{
 
+	private static final long serialVersionUID = 5653779106859496719L;
+	
 	private String id;
 	private long creationTime;
 

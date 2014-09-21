@@ -2,6 +2,7 @@ package service;
 
 import java.io.IOException;
 
+import model.City;
 import model.Trip;
 
 import org.slf4j.Logger;
@@ -106,6 +107,10 @@ public class DaoService {
 		} finally {
 			RedisDao.returnJedis(jedis);
 		}
+	}
+	
+	private static void addCityHistory(City city){
+		
 	}
 	
 }

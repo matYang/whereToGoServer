@@ -27,17 +27,16 @@ public class SyncResource extends ParentResource{
 			JSONObject requestData = this.getJSONObj(entity);
 			
 			ObjectMapper mapper = new ObjectMapper();
-			Trip user = mapper.readValue(requestData.toString(), Trip.class);
+			Trip trip = mapper.readValue(requestData.toString(), Trip.class);
 			
-			logger.info(user.toString());
-			//user = UserDaoService.storeUser();
+			logger.info(trip.toString());
 			
-			String jsonStr = mapper.writeValueAsString(user);
+			trip = DaoService.storeTrip(trip);
+			String jsonStr = mapper.writeValueAsString(trip);
 			response = new JSONObject(jsonStr);
 			
 		} catch (Exception e){
-			logger.warn("Sync Failed", e);
-			this.addCORSHeader();
+			logger.warn("Create Failed", e);
 			return this.handleException(e);
 		}
 

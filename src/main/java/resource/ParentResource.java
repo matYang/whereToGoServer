@@ -108,6 +108,7 @@ public class ParentResource extends ServerResource{
 			response.put("message", "Server Encountered Some Difficulties, Please Try Again Later");
 		}
 		
+		this.addCORSHeader();
 		return new JsonRepresentation(response);
 	}
 	

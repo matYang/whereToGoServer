@@ -1,3 +1,4 @@
 .project
 org.eclipse.core.resources.prefs
 org.eclipse.jdt.core.prefs
+log4j

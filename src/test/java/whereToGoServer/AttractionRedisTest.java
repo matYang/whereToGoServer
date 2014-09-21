@@ -50,9 +50,9 @@ public class AttractionRedisTest {
 		attractions_c.add(new Attraction("Genesys Lab", 25, "Middle Markham Somewhere Near First Markham Place", "http://www.genesys.com").toString());
 		
 		ArrayList<City> cities = new ArrayList<City>();
-		cities.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
-		cities.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, attractions_b));
-		cities.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, attractions_c));
+		cities.add(new City(1, 3, "London", "London Ontario", true, 254.05, 0.0, attractions_a));
+		cities.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, 0.0, attractions_b));
+		cities.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, 0.0, attractions_c));
 		
 		//Note the mock Id must be 6 character long or the store routine will consider it invalid
 		Trip trip = new Trip("TESTTP", DateUtility.curTime(), cities);
@@ -77,15 +77,15 @@ public class AttractionRedisTest {
 		attractions_c.add(new Attraction("Boom Digital Media Group", 2, "CommuniTech Incubator", "http://www.boomdigital.ca").toString());
 		
 		ArrayList<City> cities_a = new ArrayList<City>();
-		cities_a.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
-		cities_a.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, attractions_b));
-		cities_a.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, attractions_c));
+		cities_a.add(new City(1, 3, "London", "London Ontario", true, 254.05, 0.0, attractions_a));
+		cities_a.add(new City(6, 2, "Waterloo", "Waterloo Ontario", false, 2514.12, 0.0, attractions_b));
+		cities_a.add(new City(9, 3, "Kitchener", "Kitchener Ontario", true, 254.621, 0.0, attractions_c));
 		
 		ArrayList<City> cities_b = new ArrayList<City>();
-		cities_b.add(new City(1, 3, "London", "London Ontario", true, 254.05, attractions_a));
+		cities_b.add(new City(1, 3, "London", "London Ontario", true, 254.05, 0.0, attractions_a));
 		
 		ArrayList<City> cities_c = new ArrayList<City>();
-		cities_b.add(new City(1, 3, "Waterloo", "Waterloo Ontario", true, 254.05, attractions_a));
+		cities_b.add(new City(1, 3, "Waterloo", "Waterloo Ontario", true, 254.05, 0.0, attractions_a));
 		
 		Trip trip_a = new Trip("TESTTa", DateUtility.curTime(), cities_a);
 		Trip trip_b = new Trip("TESTTb", DateUtility.curTime(), cities_a);

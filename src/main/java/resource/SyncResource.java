@@ -16,20 +16,10 @@ import service.DaoService;
 
 public class SyncResource extends ParentResource{
 	
-	private static final Logger logger = LoggerFactory.getLogger(SyncResource.class);
-	
-	@Get 	    
-	public Representation getUserData() {
-	    Representation result = new JsonRepresentation(new JSONObject());
-	    
-	    DaoService.set("test", "gogogo");
-	    
-	    this.addCORSHeader();
-	    return result;
-	}	   
+	private static final Logger logger = LoggerFactory.getLogger(SyncResource.class);	   
 	
 	@Post
-	public Representation saveUserData(Representation entity){
+	public Representation create(Representation entity){
 		JSONObject response = new JSONObject();
 
 		try{
@@ -40,6 +30,10 @@ public class SyncResource extends ParentResource{
 			User user = mapper.readValue(requestData.toString(), User.class);
 			
 			logger.info(user.toString());
+			//user = UserDaoService.storeUser();
+			
+			String jsonStr = mapper.writeValueAsString(user);
+			response = new JSONObject(jsonStr);
 			
 		} catch (Exception e){
 			logger.warn("Sync Failed", e);

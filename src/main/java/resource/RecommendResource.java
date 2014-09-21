@@ -14,7 +14,7 @@ public class RecommendResource extends ParentResource {
 	private static final Logger logger = LoggerFactory.getLogger(RecommendResource.class);
 	
 	@Get 	    
-	public Representation getUserData() {
+	public Representation recommend() {
 	    Representation result = new JsonRepresentation(new JSONObject());
 	    
 	    DaoService.set("test", "gogogo");

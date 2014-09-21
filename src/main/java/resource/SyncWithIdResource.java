@@ -6,7 +6,6 @@ import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.resource.Get;
-import org.restlet.resource.Post;
 import org.restlet.resource.Put;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +19,7 @@ public class SyncWithIdResource extends ParentResource {
 	private static final Logger logger = LoggerFactory.getLogger(SyncWithIdResource.class);
 	
 	@Get 	    
-	public Representation getUserData() {
+	public Representation getById() {
 	    Representation result = new JsonRepresentation(new JSONObject());
 	    
 	    DaoService.set("test", "gogogo");
@@ -30,7 +29,7 @@ public class SyncWithIdResource extends ParentResource {
 	}	   
 	
 	@Put
-	public Representation saveUserData(Representation entity){
+	public Representation update(Representation entity){
 		JSONObject response = new JSONObject();
 
 		try{

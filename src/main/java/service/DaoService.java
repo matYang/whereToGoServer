@@ -176,7 +176,7 @@ public class DaoService {
 		}
 	}
 
-	public static ArrayList<City> getCityHistory(String cityName) {
+	public static ArrayList<City> getCityHistory(String cityName, String tripId) {
 		Jedis jedis = RedisDao.getJedis();
 
 		try {
@@ -187,7 +187,14 @@ public class DaoService {
 
 			ObjectMapper mapper = new ObjectMapper();
 			CityHistoryMap history = mapper.readValue(jsonStr, CityHistoryMap.class);
-			return new ArrayList<City>(history.getHistory().values());
+			
+			ArrayList<City> cityList = new ArrayList<City>();
+			for (String key : history.getHistory().keySet()){
+				if (!key.equals(tripId)){
+					cityList.add(history.getHistory().get(key));
+				}
+			}
+			return cityList;
 
 		} catch (IOException e) {
 			logger.warn("Get City History Failed", e);

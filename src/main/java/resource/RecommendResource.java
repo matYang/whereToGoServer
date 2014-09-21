@@ -28,13 +28,15 @@ public class RecommendResource extends ParentResource {
 
 	    try{
 	    	String cityName = this.getQueryVal("city");
+	    	//trip id used for exclusions
+	    	String tripId = this.getQueryVal("trip");
 			if (cityName == null){
 				return this.handleException(new ValidationException("City Name Must Not Be Null"));
 			}
 			
-			ArrayList<City> cities = DaoService.getCityHistory(cityName);
 			ObjectMapper mapper = new ObjectMapper();
 			
+			ArrayList<City> cities = DaoService.getCityHistory(cityName, tripId);
 			for (City city : cities){
 				String jsonStr = mapper.writeValueAsString(city);
 				response.put(new JSONObject(jsonStr));

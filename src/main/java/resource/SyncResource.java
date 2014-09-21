@@ -5,14 +5,13 @@ import model.Trip;
 import org.json.JSONObject;
 import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
-import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import service.DaoService;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class SyncResource extends ParentResource{
 	

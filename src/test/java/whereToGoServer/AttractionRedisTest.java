@@ -91,7 +91,6 @@ public class AttractionRedisTest {
 		Trip trip_b = new Trip("TESTTb", DateUtility.curTime(), cities_a);
 		Trip trip_c = new Trip("TESTTc", DateUtility.curTime(), cities_b);
 		Trip trip_d = new Trip("TESTTd", DateUtility.curTime(), cities_c);
-		Trip trip_e = new Trip("TESTTd", DateUtility.curTime(), cities_c);
 
 		DaoService.storeTrip(trip_a);
 		DaoService.storeTrip(trip_b);
@@ -99,18 +98,22 @@ public class AttractionRedisTest {
 		DaoService.storeTrip(trip_d);
 		DaoService.storeTrip(trip_d);
 		
-		assertTrue(DaoService.getCityHistory("London").size() == 3);
-		assertTrue(DaoService.getCityHistory("Waterloo").size() == 3);
-		assertTrue(DaoService.getCityHistory("Kitchener").size() == 2);
+		assertTrue(DaoService.getCityHistory("London", null).size() == 3);
+		assertTrue(DaoService.getCityHistory("Waterloo", null).size() == 3);
+		assertTrue(DaoService.getCityHistory("Kitchener", null).size() == 2);
+		
+		assertTrue(DaoService.getCityHistory("London", trip_a.getId()).size() == 2);
+		assertTrue(DaoService.getCityHistory("Waterloo", trip_c.getId()).size() == 2);
+		assertTrue(DaoService.getCityHistory("Kitchener", trip_d.getId()).size() == 2);
 		
 		DaoService.deleteTrip(trip_a.getId());
 		DaoService.deleteTrip(trip_b.getId());
 		DaoService.deleteTrip(trip_c.getId());
 		DaoService.deleteTrip(trip_d.getId());
 		
-		assertTrue(DaoService.getCityHistory("London").size() == 0);
-		assertTrue(DaoService.getCityHistory("Waterloo").size() == 0);
-		assertTrue(DaoService.getCityHistory("Kitchener").size() == 0);
+		assertTrue(DaoService.getCityHistory("London", null).size() == 0);
+		assertTrue(DaoService.getCityHistory("Waterloo", null).size() == 0);
+		assertTrue(DaoService.getCityHistory("Kitchener", null).size() == 0);
 	}
 	
 }
